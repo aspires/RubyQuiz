@@ -1,1 +1,2 @@
-== Solutions for RubyQuiz
+Solutions for RubyQuiz
+========================
