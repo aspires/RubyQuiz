@@ -1,4 +1,4 @@
 Solutions for RubyQuiz
 ========================
 
-You can find the quiz itself [example link](http://www.rubyquiz.com/)
+You can find the quiz homepage [here](http://www.rubyquiz.com/)
