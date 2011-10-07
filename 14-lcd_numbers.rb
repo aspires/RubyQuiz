@@ -3,6 +3,8 @@
 #      Problem can be found at http://www.rubyquiz.com/quiz14.html     #
 ########################################################################
 
+require "pp"
+
 if ARGV[0] == "-s"
   expand = ARGV[1].to_i
   input_num = ARGV[2].to_s.split(//)
@@ -34,21 +36,40 @@ def convert_to_lcd(int, array)
   return array.fetch(int.to_i)
 end
 
-output_num = input_num.map { |x| x = convert_to_lcd(x, lcd_num) }
+output_num = input_num.map { |x| convert_to_lcd(x, lcd_num) }
 
-output_num.map.with_index do |x|
-  x.map.with_index { |num , i| output_num[0][i] = output_num[0][i] + " " + num }
+# pp output_num
+
+if output_num.size > 1
+  output_num = output_num[0].zip(*output_num[1..-1])
 end
-      
-output_num.map do |x|
-  expander = expand + 2
-  contract = expand - 1
-  
-  x.each { |str| str.slice!(0..expander) }
-  contract.times do x.insert(3, x[3]) end
-  contract.times do x.insert(1, x[1]) end
-end  
 
-puts output_num.first
+output_num.each do |row|
+  line = row.join(" ")
+  if line.include?("|")
+    expand.times do 
+      puts line
+    end
+  else
+    puts line
+  end
+end
 
+# pp output_num
 
+# output_num.each do |x|
+#  x.each.with_index { |num , i| output_num[0][i] = output_num[0][i] + " " + num }
+# end
+#       
+# output_num.map do |x|
+#   expander = expand + 2
+#   contrac = expand - 1
+#   
+#   x.each { |str| str.slice!(0..expander) }
+#   contrac.times do x.insert(3, x[3]) end
+#   contrac.times do x.insert(1, x[1]) end
+# end  
+# 
+# puts output_num.first
+# 
+# 
