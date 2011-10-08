@@ -9,9 +9,18 @@ rows.times do |x|
   pascal << Array.new
 end
 
-pascal.each_with_index do |x, i|
-  (i+1).times do x.push(0)
+pascal.each do |x|
+  rows.times do x.push(" ")
   end
 end
 
+pascal.map.with_index do |row, i|
+
+  leng = row.length
+  splits = i+2
+  inserts = leng/splits
+  
+  puts inserts
+
+end
 pp pascal
