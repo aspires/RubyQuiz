@@ -1,0 +1,3 @@
+1318894751
+convert_to_lcd	/Users/ASpires/Projects/ruby/RubyQuiz/14-lcd_numbers.rb	def convert_to_lcd(int, array)
+game_guts	/Users/ASpires/Projects/ruby/RubyQuiz/16-paper_rock_scissors.rb	def game_guts(player, computer)

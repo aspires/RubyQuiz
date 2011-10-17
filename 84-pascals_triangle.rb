@@ -33,4 +33,27 @@ while rows > 0
   
 end
 
+max_length =(pascal[-1].length)*2
+
+pascal.map! do |row|
+  divisor =  (row.length)
+  gap = ((max_length)/divisor)
+  
+  row[0] = (" "*gap) + row[0].to_s
+  row.map!.with_index do |item, index|
+    item = (" "*gap) + item.to_s
+    
+    if index != 0
+      item = (" "*gap) + item
+    else
+      item
+    end
+    
+  end
+  
+  
+  
+  row.join()
+end
+
 pp pascal
