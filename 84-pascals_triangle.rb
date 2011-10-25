@@ -33,27 +33,21 @@ while rows > 0
   
 end
 
-max_length =(pascal[-1].length)*2
+largest_number = pascal[-1].sort[-1].to_s
+spacer = largest_number.length
+leng = pascal.length
 
-pascal.map! do |row|
-  divisor =  (row.length)
-  gap = ((max_length)/divisor)
-  
-  row[0] = (" "*gap) + row[0].to_s
-  row.map!.with_index do |item, index|
-    item = (" "*gap) + item.to_s
-    
-    if index != 0
-      item = (" "*gap) + item
-    else
-      item
-    end
-    
-  end
-  
-  
-  
-  row.join()
+p leng
+p largest_number
+p spacer
+
+pascal.map!.with_index do |row, row_index|
+  row.join(" " * spacer)
 end
+
+# pascal.map.with_index do |line, line_index| 
+# p line_index
+# line.insert(0, (leng - line_index) *" ") 
+# end
 
 pp pascal
