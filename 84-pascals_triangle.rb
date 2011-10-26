@@ -15,20 +15,17 @@ while rows > 0
   prevrow = pascal[row_index]
   prevrow_length = prevrow.length
   starting = 0
-  new_array = [1]
-  while starting < prevrow_length -1
-  next_place = starting+1
-  new_array << prevrow[starting].to_i + prevrow[next_place].to_i
+  new_row = [1]
   
-  starting = next_place
-  
-  end
-  
-  new_array << 1
-  
-  pascal << new_array
-  row_index +=1
-  
+    while starting < prevrow_length - 1
+      next_place = starting+1
+      new_row << prevrow[starting].to_i + prevrow[(starting+1)].to_i 
+      starting += 1
+    end
+    
+  new_row << 1
+  pascal << new_row
+  row_index += 1
   rows -= 1
   
 end
@@ -37,17 +34,11 @@ largest_number = pascal[-1].sort[-1].to_s
 spacer = largest_number.length
 leng = pascal.length
 
-p leng
-p largest_number
-p spacer
-
 pascal.map!.with_index do |row, row_index|
+  row.insert(0, (" "*spacer)*(leng-row_index))
   row.join(" " * spacer)
 end
 
-# pascal.map.with_index do |line, line_index| 
-# p line_index
-# line.insert(0, (leng - line_index) *" ") 
-# end
 
 pp pascal
+puts pascal
