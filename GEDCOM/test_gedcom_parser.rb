@@ -53,4 +53,12 @@ class TestGEDCOMParser < Test::Unit::TestCase
     assert_instance_of(Hash, test_output[-1],
                       "Should have a Hash in position 1")
   end
+  
+  def test_no_newline_chars
+    test = turn_to_hash(parse_gedcom(read_gedcom(read_file("gedcom.txt"))))
+    assert_no_match(/[^\d\w\s]n/, test[0],
+                    "No newlines allowed")
+  end
+    
+  
 end
