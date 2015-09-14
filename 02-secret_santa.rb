@@ -1,3 +1,7 @@
+#
+#  Quiz page: http://rubyquiz.com/quiz2.html
+#  This isn't quite in line with the quiz spec, but it's close enough :)
+
 class Santa
 
   def initialize(list)
@@ -52,4 +56,4 @@ names = {
   "Lindsey Brigman"  => "lindsey@iseealiens.net"
 }
 test = Santa.new(names)
-p test.output
+test.output
